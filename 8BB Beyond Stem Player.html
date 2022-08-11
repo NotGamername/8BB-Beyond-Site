@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The 8-Bit Brothers Interactive Stem Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="8BB_BeyondCSS.css">
+    <style>
+    </style>
+</head>
+<body>
+
+<div class="popup" id="master">
+    <span class="popuptext" id="myPopup">Click anywhere to begin!</span>
+</div>
+
+<h1>
+    The 8-Bit Brothers
+    <br>
+    <br>
+    <a href="https://linktr.ee/8BitBrothers" target="_blank" id="instagram">Linktree</a>
+</h1>
+
+<h2>
+    "Beyond" Interactive Stem Player
+</h2>
+
+<p>
+    <b>Explore the stems from the track "Beyond" off our new album <i>Transcending the Paradox</i> and see how we built the song up!</b>
+</p>
+
+<br>
+
+<p id="demo">
+    Buffer Size: 1 Bar
+</p>
+
+<p class="bufferSize">
+    <input oninput="ratioBuffer();" type="range" min="-2.0" max="2.0" value="0" id="ratioBuffer" step="1.0">
+</p>
+
+<br>
+<br>
+
+<div class="topRow">
+    <d1>
+        <b style="color: white;">Drum 1</b>
+        <br>
+
+        <button type="submit" onclick="d1start('Beyond Stems Drums 1_05.wav');" id="d1play"></button>
+        <button type="submit" onclick="d1stop();" id="d1stop"></button>
+        <br>
+        <br>
+
+        <b style="color: white;">Volume</b>
+        <br>
+
+        <input oninput="d1volslid();" type="range" min="0" max="1.0" value="1.0" id="d1vol" step="0.01">
+        <br>
+    </d1>
+
+    <d2>
+        <b style="color: white;">Drum 2</b>
+        <br>
+
+        <button type="submit" onclick="d2start('Beyond Stems Drums 2_06.wav');" id="d2play"></button>
+        <button type="submit" onclick="d2stop();" id="d2stop"></button>
+        <br>
+        <br>
+
+        <b style="color: white;">Volume</b>
+        <br>
+
+        <input oninput="d2volslid();" type="range" min="0" max="1.0" value="1.0" id="d2vol" step="0.01">
+        <br>
+    </d2>
+
+    <d3>
+        <b style="color: white;">Drum 3</b>
+        <br>
+
+        <button type="submit" onclick="d3start('Beyond Stems Drums 3_07.wav');" id="d3play"></button>
+        <button type="submit" onclick="d3stop();" id="d3stop"></button>
+        <br>
+        <br>
+
+        <b style="color: white;">Volume</b>
+        <br>
+
+        <input oninput="d3volslid();" type="range" min="0" max="1.0" value="1.0" id="d3vol" step="0.01">
+        <br>
+    </d3>
+
+    <d4>
+        <b style="color: white;">Drum 4</b>
+        <br>
+
+        <button type="submit" onclick="d4start('Beyond Stems Drums 4_08.wav');" id="d4play"></button>
+        <button type="submit" onclick="d4stop();" id="d4stop"></button>
+        <br>
+        <br>
+
+        <b style="color: white;">Volume</b>
+        <br>
+
+        <input oninput="d4volslid();" type="range" min="0" max="1.0" value="1.0" id="d4vol" step="0.01">
+        <br>
+    </d4>
+
+    <d5>
+        <b style="color: white;">Drum 5</b>
+        <br>
+
+        <button type="submit" onclick="d5start('Beyond Stems Drums 5_09.wav');" id="d5play"></button>
+        <button type="submit" onclick="d5stop();" id="d5stop"></button>
+        <br>
+        <br>
+
+        <b style="color: white;">Volume</b>
+        <br>
+
+        <input oninput="d5volslid();" type="range" min="0" max="1.0" value="1.0" id="d5vol" step="0.01">
+        <br>
+    </d5>
+
+    <d6>
+        <b style="color: white;">Drum 6</b>
+        <br>
+
+        <button type="submit" onclick="d6start('Beyond Stems Drums 6_10.wav');" id="d6play"></button>
+        <button type="submit" onclick="d6stop();" id="d6stop"></button>
+        <br>
+        <br>
+
+        <b style="color: white;">Volume</b>
+        <br>
+
+        <input oninput="d6volslid();" type="range" min="0" max="1.0" value="1.0" id="d6vol" step="0.01">
+        <br>
+    </d6>
+</div>
+
+<div class="bottomRow">
+    <s1>
+        <b style="color: white;">Sax 1</b>
+        <br>
+
+        <button type="submit" onclick="s1start('Beyond Stems Sax 1_11.wav');" id="s1play"></button>
+        <button type="submit" onclick="s1stop();" id="s1stop"></button>
+        <br>
+        <br>
+
+        <b style="color: white;">Volume</b>
+        <br>
+
+        <input oninput="s1volslid();" type="range" min="0" max="1.0" value="1.0" id="s1vol" step="0.01">
+        <br>
+    </s1>
+
+
+    <s2>
+        <b style="color: white;">Sax 2</b>
+        <br>
+
+        <button type="submit" onclick="s2start('Beyond Stems Sax 2_12.wav');" id="s2play"></button>
+        <button type="submit" onclick="s2stop();" id="s2stop"></button>
+        <br>
+        <br>
+
+        <b style="color: white;">Volume</b>
+        <br>
+
+        <input oninput="s2volslid();" type="range" min="0" max="1.0" value="1.0" id="s2vol" step="0.01">
+        <br>
+    </s2>
+
+
+    <s3>
+        <b style="color: white;">Sax 3</b>
+        <br>
+
+        <button type="submit" onclick="s3start('Beyond Stems Sax 3_13.wav');" id="s3play"></button>
+        <button type="submit" onclick="s3stop();" id="s3stop"></button>
+        <br>
+        <br>
+
+        <b style="color: white;">Volume</b>
+        <br>
+
+        <input oninput="s3volslid();" type="range" min="0" max="1.0" value="1.0" id="s3vol" step="0.01">
+        <br>
+    </s3>
+
+
+    <s4>
+        <b style="color: white;">Sax 4</b>
+        <br>
+
+        <button type="submit" onclick="s4start('Beyond Stems Sax 4_14.wav');" id="s4play"></button>
+        <button type="submit" onclick="s4stop();" id="s4stop"></button>
+        <br>
+        <br>
+
+        <b style="color: white;">Volume</b>
+        <br>
+
+        <input oninput="s4volslid();" type="range" min="0" max="1.0" value="1.0" id="s4vol" step="0.01">
+        <br>
+    </s4>
+
+
+    <s5>
+        <b style="color: white;">Sax 5</b>
+        <br>
+
+        <button type="submit" onclick="s5start('Beyond Stems Sax 5_15.wav');" id="s5play"></button>
+        <button type="submit" onclick="s5stop();" id="s5stop"></button>
+        <br>
+        <br>
+
+        <b style="color: white;">Volume</b>
+        <br>
+
+        <input oninput="s5volslid();" type="range" min="0" max="1.0" value="1.0" id="s5vol" step="0.01">
+        <br>
+    </s5>
+
+
+    <s6>
+        <b style="color: white;">Sax 6</b>
+        <br>
+
+        <button type="submit" onclick="s6start('Beyond Stems Sax 6_16.wav');" id="s6play"></button>
+        <button type="submit" onclick="s6stop();" id="s6stop"></button>
+        <br>
+        <br>
+
+        <b style="color: white;">Volume</b>
+        <br>
+
+        <input oninput="s6volslid();" type="range" min="0" max="1.0" value="1.0" id="s6vol" step="0.01">
+        <br>
+    </s6>
+
+
+    <s7>
+        <b style="color: white;">Sax 7</b>
+        <br>
+
+        <button type="submit" onclick="s7start('Beyond Stems Sax 7_17.wav');" id="s7play"></button>
+        <button type="submit" onclick="s7stop();" id="s7stop"></button>
+        <br>
+        <br>
+
+        <b style="color: white;">Volume</b>
+        <br>
+
+        <input oninput="s7volslid();" type="range" min="0" max="1.0" value="1.0" id="s7vol" step="0.01">
+        <br>
+    </s7>
+
+
+    <s8>
+        <b style="color: white;">Sax 8</b>
+        <br>
+
+        <button type="submit" onclick="s8start('Beyond Stems Sax 8_18.wav');" id="s8play"></button>
+        <button type="submit" onclick="s8stop();" id="s8stop"></button>
+        <br>
+        <br>
+
+        <b style="color: white;">Volume</b>
+        <br>
+
+        <input oninput="s8volslid();" type="range" min="0" max="1.0" value="1.0" id="s8vol" step="0.01">
+        <br>
+    </s8>
+</div>
+
+<br>
+<br>
+
+<!-- <p>
+    XY Pad Filter
+</p>
+
+<div class="XY" onmousemove="filterTime(event)"></div> -->
+
+
+<script>
+document.getElementById("master").addEventListener("click", initAudio, {once:true})
+document.getElementById("master").addEventListener("click", togglePopup, {once:true})
+
+// When the user clicks on div, open the popup
+function togglePopup() {
+    var popupText = document.getElementById("myPopup");
+    popupText.classList.toggle("hide");
+}
+
+let audioContext, buffer, tempo, offset, bpm, ratio;
+var buffers = {};
+
+try {
+    audioContext =
+    new (window.AudioContext || window.webkitAudioContext)();
+    document.getElementById("d1play").disabled = true;
+    document.getElementById("d1stop").disabled = true;
+    document.getElementById("d1vol").disabled = true;
+    document.getElementById("d2play").disabled = true;
+    document.getElementById("d2stop").disabled = true;
+    document.getElementById("d2vol").disabled = true;
+    document.getElementById("d3play").disabled = true;
+    document.getElementById("d3stop").disabled = true;
+    document.getElementById("d3vol").disabled = true;
+    document.getElementById("d4play").disabled = true;
+    document.getElementById("d4stop").disabled = true;
+    document.getElementById("d4vol").disabled = true;
+    document.getElementById("d5play").disabled = true;
+    document.getElementById("d5stop").disabled = true;
+    document.getElementById("d5vol").disabled = true;
+    document.getElementById("d6play").disabled = true;
+    document.getElementById("d6stop").disabled = true;
+    document.getElementById("d6vol").disabled = true;
+    document.getElementById("s1play").disabled = true;
+    document.getElementById("s1stop").disabled = true;
+    document.getElementById("s1vol").disabled = true;
+    document.getElementById("s2play").disabled = true;
+    document.getElementById("s2stop").disabled = true;
+    document.getElementById("s2vol").disabled = true;
+    document.getElementById("s3play").disabled = true;
+    document.getElementById("s3stop").disabled = true;
+    document.getElementById("s3vol").disabled = true;
+    document.getElementById("s4play").disabled = true;
+    document.getElementById("s4stop").disabled = true;
+    document.getElementById("s4vol").disabled = true;
+    document.getElementById("s5play").disabled = true;
+    document.getElementById("s5stop").disabled = true;
+    document.getElementById("s5vol").disabled = true;
+    document.getElementById("s6play").disabled = true;
+    document.getElementById("s6stop").disabled = true;
+    document.getElementById("s6vol").disabled = true;
+    document.getElementById("s7play").disabled = true;
+    document.getElementById("s7stop").disabled = true;
+    document.getElementById("s7vol").disabled = true;
+    document.getElementById("s8play").disabled = true;
+    document.getElementById("s8stop").disabled = true;
+    document.getElementById("s8vol").disabled = true;
+} catch (error) {
+    window.alert("Browser doesn't support the Web Audio API!");
+}
+
+function initAudio(){
+    audioContext.resume().then(() => {
+    loadAudio('Beyond Stems Drums 1_05.wav');
+    loadAudio('Beyond Stems Drums 2_06.wav');
+    loadAudio('Beyond Stems Drums 3_07.wav');
+    loadAudio('Beyond Stems Drums 4_08.wav');
+    loadAudio('Beyond Stems Drums 5_09.wav');
+    loadAudio('Beyond Stems Drums 6_10.wav');
+    loadAudio('Beyond Stems Sax 1_11.wav');
+    loadAudio('Beyond Stems Sax 2_12.wav');
+    loadAudio('Beyond Stems Sax 3_13.wav');
+    loadAudio('Beyond Stems Sax 4_14.wav');
+    loadAudio('Beyond Stems Sax 5_15.wav');
+    loadAudio('Beyond Stems Sax 6_16.wav');
+    loadAudio('Beyond Stems Sax 7_17.wav');
+    loadAudio('Beyond Stems Sax 8_18.wav');
+    document.getElementById("d1play").disabled = false;
+    document.getElementById("d1vol").disabled = false;
+    document.getElementById("d2play").disabled = false;
+    document.getElementById("d2vol").disabled = false;
+    document.getElementById("d3play").disabled = false;
+    document.getElementById("d3vol").disabled = false;
+    document.getElementById("d4play").disabled = false;
+    document.getElementById("d4vol").disabled = false;
+    document.getElementById("d5play").disabled = false;
+    document.getElementById("d5vol").disabled = false;
+    document.getElementById("d6play").disabled = false;
+    document.getElementById("d6vol").disabled = false;
+    document.getElementById("s1play").disabled = false;
+    document.getElementById("s1vol").disabled = false;
+    document.getElementById("s2play").disabled = false;
+    document.getElementById("s2vol").disabled = false;
+    document.getElementById("s3play").disabled = false;
+    document.getElementById("s3vol").disabled = false;
+    document.getElementById("s4play").disabled = false;
+    document.getElementById("s4vol").disabled = false;
+    document.getElementById("s5play").disabled = false;
+    document.getElementById("s5vol").disabled = false;
+    document.getElementById("s6play").disabled = false;
+    document.getElementById("s6vol").disabled = false;
+    document.getElementById("s7play").disabled = false;
+    document.getElementById("s7vol").disabled = false;
+    document.getElementById("s8play").disabled = false;
+    document.getElementById("s8vol").disabled = false;
+    console.log('init')    
+    });
+}
+
+function loadAudio(url) {
+    var request = new XMLHttpRequest();
+    request.open('GET', url, true);
+    request.responseType = 'arraybuffer';
+    request.onload = function(evt) {
+        audioContext.decodeAudioData(request.response, store);
+    };
+    request.send();
+
+    function store(buffer) {
+        buffers[url] = buffer;
+    }
+}
+
+// change buffer size
+function ratioBuffer(){
+    let exp = document.getElementById('ratioBuffer')
+    ratio = 2**exp.value;
+    tempo = (480/bpm) * ratio;
+    if (ratio>1) {
+        var coor = "Buffer Size: " + ratio + " Bars";
+        document.getElementById("demo").innerHTML = coor;
+    } else if (ratio<1) {
+        var coor = "Buffer Size: 1/" + 1/ratio + " Note";
+        document.getElementById("demo").innerHTML = coor;
+    } else {
+        var coor = "Buffer Size: " + ratio + " Bar";
+        document.getElementById("demo").innerHTML = coor;
+    }
+}
+
+bpm = 184;
+tempo = (480/bpm);
+offset = 0;
+
+// DRUM 1
+function d1start(url){
+    d1source = audioContext.createBufferSource();
+    d1Gain = audioContext.createGain();
+    d1source.buffer = buffers[url];
+    d1source.loop = true;
+    if (offset == 0) {
+        d1source.start();
+        offset = audioContext.currentTime;
+    } else {
+        var relativeTime = audioContext.currentTime - offset;
+        var beats = relativeTime / tempo;
+        var remainder = beats - Math.floor(beats);
+        var delay = tempo - (remainder*tempo);
+        d1source.start(audioContext.currentTime+delay, relativeTime+delay);
+    }
+    d1source.connect(d1Gain);
+    d1Gain.connect(audioContext.destination);
+    document.getElementById('d1play').disabled = true;
+    document.getElementById('d1stop').disabled = false;
+};
+function d1stop(){
+    d1source.stop();
+    document.getElementById('d1play').disabled = false;
+    document.getElementById('d1stop').disabled = true;
+} 
+function d1volslid(){
+    let gain = document.getElementById('d1vol')
+    d1Gain.gain.setValueAtTime(gain.value, audioContext.currentTime);
+}
+
+// DRUM 2
+function d2start(url){
+    d2source = audioContext.createBufferSource();
+    d2Gain = audioContext.createGain();
+    d2source.buffer = buffers[url];
+    d2source.loop = true;
+    if (offset == 0) {
+        d2source.start();
+        offset = audioContext.currentTime;
+    } else {
+        var relativeTime = audioContext.currentTime - offset;
+        var beats = relativeTime / tempo;
+        var remainder = beats - Math.floor(beats);
+        var delay = tempo - (remainder*tempo);
+        d2source.start(audioContext.currentTime+delay, relativeTime+delay);
+    }
+    d2source.connect(d2Gain);
+    d2Gain.connect(audioContext.destination);
+    document.getElementById('d2play').disabled = true;
+    document.getElementById('d2stop').disabled = false;
+};
+function d2stop(){
+    d2source.stop();
+    document.getElementById('d2play').disabled = false;
+    document.getElementById('d2stop').disabled = true;
+} 
+function d2volslid(){
+    let gain = document.getElementById('d2vol')
+    d2Gain.gain.setValueAtTime(gain.value, audioContext.currentTime);
+}
+
+// DRUM 3
+function d3start(url){
+    d3source = audioContext.createBufferSource();
+    d3Gain = audioContext.createGain();
+    d3source.buffer = buffers[url];
+    d3source.loop = true;
+    if (offset == 0) {
+        d3source.start();
+        offset = audioContext.currentTime;
+    } else {
+        var relativeTime = audioContext.currentTime - offset;
+        var beats = relativeTime / tempo;
+        var remainder = beats - Math.floor(beats);
+        var delay = tempo - (remainder*tempo);
+        d3source.start(audioContext.currentTime+delay, relativeTime+delay);
+    }
+    d3source.connect(d3Gain);
+    d3Gain.connect(audioContext.destination);
+    document.getElementById('d3play').disabled = true;
+    document.getElementById('d3stop').disabled = false;
+};
+function d3stop(){
+    d3source.stop();
+    document.getElementById('d3play').disabled = false;
+    document.getElementById('d3stop').disabled = true;
+} 
+function d3volslid(){
+    let gain = document.getElementById('d3vol')
+    d3Gain.gain.setValueAtTime(gain.value, audioContext.currentTime);
+}
+
+// DRUM 4
+function d4start(url){
+    d4source = audioContext.createBufferSource();
+    d4Gain = audioContext.createGain();
+    d4source.buffer = buffers[url];
+    d4source.loop = true;
+    if (offset == 0) {
+        d4source.start();
+        offset = audioContext.currentTime;
+    } else {
+        var relativeTime = audioContext.currentTime - offset;
+        var beats = relativeTime / tempo;
+        var remainder = beats - Math.floor(beats);
+        var delay = tempo - (remainder*tempo);
+        d4source.start(audioContext.currentTime+delay, relativeTime+delay);
+    }
+    d4source.connect(d4Gain);
+    d4Gain.connect(audioContext.destination);
+    document.getElementById('d4play').disabled = true;
+    document.getElementById('d4stop').disabled = false;
+};
+function d4stop(){
+    d4source.stop();
+    document.getElementById('d4play').disabled = false;
+    document.getElementById('d4stop').disabled = true;
+} 
+function d4volslid(){
+    let gain = document.getElementById('d4vol')
+    d4Gain.gain.setValueAtTime(gain.value, audioContext.currentTime);
+}
+
+// DRUM 5
+function d5start(url){
+    d5source = audioContext.createBufferSource();
+    d5Gain = audioContext.createGain();
+    d5source.buffer = buffers[url];
+    d5source.loop = true;
+    if (offset == 0) {
+        d5source.start();
+        offset = audioContext.currentTime;
+    } else {
+        var relativeTime = audioContext.currentTime - offset;
+        var beats = relativeTime / tempo;
+        var remainder = beats - Math.floor(beats);
+        var delay = tempo - (remainder*tempo);
+        d5source.start(audioContext.currentTime+delay, relativeTime+delay);
+    }
+    d5source.connect(d5Gain);
+    d5Gain.connect(audioContext.destination);
+    document.getElementById('d5play').disabled = true;
+    document.getElementById('d5stop').disabled = false;
+};
+function d5stop(){
+    d5source.stop();
+    document.getElementById('d5play').disabled = false;
+    document.getElementById('d5stop').disabled = true;
+} 
+function d5volslid(){
+    let gain = document.getElementById('d5vol')
+    d5Gain.gain.setValueAtTime(gain.value, audioContext.currentTime);
+}
+
+// DRUM 6
+function d6start(url){
+    d6source = audioContext.createBufferSource();
+    d6Gain = audioContext.createGain();
+    d6source.buffer = buffers[url];
+    d6source.loop = true;
+    if (offset == 0) {
+        d6source.start();
+        offset = audioContext.currentTime;
+    } else {
+        var relativeTime = audioContext.currentTime - offset;
+        var beats = relativeTime / tempo;
+        var remainder = beats - Math.floor(beats);
+        var delay = tempo - (remainder*tempo);
+        d6source.start(audioContext.currentTime+delay, relativeTime+delay);
+    }
+    d6source.connect(d6Gain);
+    d6Gain.connect(audioContext.destination);
+    document.getElementById('d6play').disabled = true;
+    document.getElementById('d6stop').disabled = false;
+};
+function d6stop(){
+    d6source.stop();
+    document.getElementById('d6play').disabled = false;
+    document.getElementById('d6stop').disabled = true;
+} 
+function d6volslid(){
+    let gain = document.getElementById('d6vol')
+    d6Gain.gain.setValueAtTime(gain.value, audioContext.currentTime);
+}
+
+// SAX 1
+function s1start(url){
+    s1source = audioContext.createBufferSource();
+    s1Gain = audioContext.createGain();
+    s1source.buffer = buffers[url];
+    s1source.loop = true;
+    if (offset == 0) {
+        s1source.start();
+        offset = audioContext.currentTime;
+    } else {
+        var relativeTime = audioContext.currentTime - offset;
+        var beats = relativeTime / tempo;
+        var remainder = beats - Math.floor(beats);
+        var delay = tempo - (remainder*tempo);
+        s1source.start(audioContext.currentTime+delay, relativeTime+delay);
+    }
+    s1source.connect(s1Gain);
+    s1Gain.connect(audioContext.destination);
+    document.getElementById('s1play').disabled = true;
+    document.getElementById('s1stop').disabled = false;
+};
+function s1stop(){
+    s1source.stop();
+    document.getElementById('s1play').disabled = false;
+    document.getElementById('s1stop').disabled = true;
+} 
+function s1volslid(){
+    let gain = document.getElementById('s1vol')
+    s1Gain.gain.setValueAtTime(gain.value, audioContext.currentTime);
+}
+
+// SAX 2
+function s2start(url){
+    s2source = audioContext.createBufferSource();
+    s2Gain = audioContext.createGain();
+    s2source.buffer = buffers[url];
+    s2source.loop = true;
+    if (offset == 0) {
+        s2source.start();
+        offset = audioContext.currentTime;
+    } else {
+        var relativeTime = audioContext.currentTime - offset;
+        var beats = relativeTime / tempo;
+        var remainder = beats - Math.floor(beats);
+        var delay = tempo - (remainder*tempo);
+        s2source.start(audioContext.currentTime+delay, relativeTime+delay);
+    }
+    s2source.connect(s2Gain);
+    s2Gain.connect(audioContext.destination);
+    document.getElementById('s2play').disabled = true;
+    document.getElementById('s2stop').disabled = false;
+};
+function s2stop(){
+    s2source.stop();
+    document.getElementById('s2play').disabled = false;
+    document.getElementById('s2stop').disabled = true;
+} 
+function s2volslid(){
+    let gain = document.getElementById('s2vol')
+    s2Gain.gain.setValueAtTime(gain.value, audioContext.currentTime);
+}
+
+// SAX 3
+function s3start(url){
+    s3source = audioContext.createBufferSource();
+    s3Gain = audioContext.createGain();
+    s3source.buffer = buffers[url];
+    s3source.loop = true;
+    if (offset == 0) {
+        s3source.start();
+        offset = audioContext.currentTime;
+    } else {
+        var relativeTime = audioContext.currentTime - offset;
+        var beats = relativeTime / tempo;
+        var remainder = beats - Math.floor(beats);
+        var delay = tempo - (remainder*tempo);
+        s3source.start(audioContext.currentTime+delay, relativeTime+delay);
+    }
+    s3source.connect(s3Gain);
+    s3Gain.connect(audioContext.destination);
+    document.getElementById('s3play').disabled = true;
+    document.getElementById('s3stop').disabled = false;
+};
+function s3stop(){
+    s3source.stop();
+    document.getElementById('s3play').disabled = false;
+    document.getElementById('s3stop').disabled = true;
+} 
+function s3volslid(){
+    let gain = document.getElementById('s3vol')
+    s3Gain.gain.setValueAtTime(gain.value, audioContext.currentTime);
+}
+
+// SAX 4
+function s4start(url){
+    s4source = audioContext.createBufferSource();
+    s4Gain = audioContext.createGain();
+    s4source.buffer = buffers[url];
+    s4source.loop = true;
+    if (offset == 0) {
+        s4source.start();
+        offset = audioContext.currentTime;
+    } else {
+        var relativeTime = audioContext.currentTime - offset;
+        var beats = relativeTime / tempo;
+        var remainder = beats - Math.floor(beats);
+        var delay = tempo - (remainder*tempo);
+        s4source.start(audioContext.currentTime+delay, relativeTime+delay);
+    }
+    s4source.connect(s4Gain);
+    s4Gain.connect(audioContext.destination);
+    document.getElementById('s4play').disabled = true;
+    document.getElementById('s4stop').disabled = false;
+};
+function s4stop(){
+    s4source.stop();
+    document.getElementById('s4play').disabled = false;
+    document.getElementById('s4stop').disabled = true;
+} 
+function s4volslid(){
+    let gain = document.getElementById('s4vol')
+    s4Gain.gain.setValueAtTime(gain.value, audioContext.currentTime);
+}
+
+// SAX 5
+function s5start(url){
+    s5source = audioContext.createBufferSource();
+    s5Gain = audioContext.createGain();
+    s5source.buffer = buffers[url];
+    s5source.loop = true;
+    if (offset == 0) {
+        s5source.start();
+        offset = audioContext.currentTime;
+    } else {
+        var relativeTime = audioContext.currentTime - offset;
+        var beats = relativeTime / tempo;
+        var remainder = beats - Math.floor(beats);
+        var delay = tempo - (remainder*tempo);
+        s5source.start(audioContext.currentTime+delay, relativeTime+delay);
+    }
+    s5source.connect(s5Gain);
+    s5Gain.connect(audioContext.destination);
+    document.getElementById('s5play').disabled = true;
+    document.getElementById('s5stop').disabled = false;
+};
+function s5stop(){
+    s5source.stop();
+    document.getElementById('s5play').disabled = false;
+    document.getElementById('s5stop').disabled = true;
+} 
+function s5volslid(){
+    let gain = document.getElementById('s5vol')
+    s5Gain.gain.setValueAtTime(gain.value, audioContext.currentTime);
+}
+
+// SAX 6
+function s6start(url){
+    s6source = audioContext.createBufferSource();
+    s6Gain = audioContext.createGain();
+    s6source.buffer = buffers[url];
+    s6source.loop = true;
+    if (offset == 0) {
+        s6source.start();
+        offset = audioContext.currentTime;
+    } else {
+        var relativeTime = audioContext.currentTime - offset;
+        var beats = relativeTime / tempo;
+        var remainder = beats - Math.floor(beats);
+        var delay = tempo - (remainder*tempo);
+        s6source.start(audioContext.currentTime+delay, relativeTime+delay);
+    }
+    s6source.connect(s6Gain);
+    s6Gain.connect(audioContext.destination);
+    document.getElementById('s6play').disabled = true;
+    document.getElementById('s6stop').disabled = false;
+};
+function s6stop(){
+    s6source.stop();
+    document.getElementById('s6play').disabled = false;
+    document.getElementById('s6stop').disabled = true;
+} 
+function s6volslid(){
+    let gain = document.getElementById('s6vol')
+    s6Gain.gain.setValueAtTime(gain.value, audioContext.currentTime);
+}
+
+// SAX 7
+function s7start(url){
+    s7source = audioContext.createBufferSource();
+    s7Gain = audioContext.createGain();
+    s7source.buffer = buffers[url];
+    s7source.loop = true;
+    if (offset == 0) {
+        s7source.start();
+        offset = audioContext.currentTime;
+    } else {
+        var relativeTime = audioContext.currentTime - offset;
+        var beats = relativeTime / tempo;
+        var remainder = beats - Math.floor(beats);
+        var delay = tempo - (remainder*tempo);
+        s7source.start(audioContext.currentTime+delay, relativeTime+delay);
+    }
+    s7source.connect(s7Gain);
+    s7Gain.connect(audioContext.destination);
+    document.getElementById('s7play').disabled = true;
+    document.getElementById('s7stop').disabled = false;
+};
+function s7stop(){
+    s7source.stop();
+    document.getElementById('s7play').disabled = false;
+    document.getElementById('s7stop').disabled = true;
+} 
+function s7volslid(){
+    let gain = document.getElementById('s7vol')
+    s7Gain.gain.setValueAtTime(gain.value, audioContext.currentTime);
+}
+
+// SAX 8
+function s8start(url){
+    s8source = audioContext.createBufferSource();
+    s8Gain = audioContext.createGain();
+    s8source.buffer = buffers[url];
+    s8source.loop = true;
+    if (offset == 0) {
+        s8source.start();
+        offset = audioContext.currentTime;
+    } else {
+        var relativeTime = audioContext.currentTime - offset;
+        var beats = relativeTime / tempo;
+        var remainder = beats - Math.floor(beats);
+        var delay = tempo - (remainder*tempo);
+        s8source.start(audioContext.currentTime+delay, relativeTime+delay);
+    }
+    s8source.connect(s8Gain);
+    s8Gain.connect(audioContext.destination);
+    document.getElementById('s8play').disabled = true;
+    document.getElementById('s8stop').disabled = false;
+};
+function s8stop(){
+    s8source.stop();
+    document.getElementById('s8play').disabled = false;
+    document.getElementById('s8stop').disabled = true;
+} 
+function s8volslid(){
+    let gain = document.getElementById('s8vol')
+    s8Gain.gain.setValueAtTime(gain.value, audioContext.currentTime);
+}
+
+// function filterTime(e) {
+//     var x = e.clientX;
+//     var y = e.clientY;
+//     console.log(x);
+//     console.log(y);
+// }
+
+</script>
+<noscript>Sorry, your browser does not support JavaScript!</noscript>
+</body>
+</html>
